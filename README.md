@@ -18,3 +18,5 @@ password is ecsadm1n for both the admin user and root, admin has full sudo acces
 |node6| 192.168.1.160|
 |node7| 192.168.1.170|
 |todo: need sshd started on machine groupb1-n5/groupb1-n5| 192.168.1.111|
+
+More detailed notes and instructions can be found here: https://github.com/jbsouthe/cloudComputing/wiki/Lab-Environment
