@@ -33,3 +33,8 @@ base
 .idea
 *.iml
 
+apache-tomcat-*/log/**
+apache-tomcat-*/temp/**
+apache-tomcat-*/webapps/roboweb/*
+apache-tomcat-*/webapps/roboweb.war
+javadocs/**
