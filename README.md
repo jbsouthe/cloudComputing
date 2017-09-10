@@ -9,6 +9,7 @@ ie: ssh -l node2 10.176.68.248 -p 2222
 password is node2
 
 |userid/pass| ip address|
+|-----------|-----------|
 |node1/node1| 192.168.1.205|
 |node2/node2| 192.168.1.211|
 |node3/node3| 192.168.1.221|
