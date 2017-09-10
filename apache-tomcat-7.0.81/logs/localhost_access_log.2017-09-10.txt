@@ -29,3 +29,17 @@
 0:0:0:0:0:0:0:1 - - [10/Sep/2017:15:45:40 -0500] "GET /roboweb/font-awesome/fonts/fontawesome-webfont.woff?v=4.2.0 HTTP/1.1" 200 65452
 0:0:0:0:0:0:0:1 - - [10/Sep/2017:15:45:42 -0500] "GET /roboweb/NewRobot.jsp HTTP/1.1" 200 10020
 0:0:0:0:0:0:0:1 - - [10/Sep/2017:15:45:42 -0500] "GET /roboweb/css/style_header.css HTTP/1.1" 404 1007
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:14 -0500] "GET /roboweb/NewRobot.jsp HTTP/1.1" 200 10020
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:14 -0500] "GET /roboweb/css/style_header.css HTTP/1.1" 404 1007
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:20 -0500] "GET /roboweb/welcome.jsp HTTP/1.1" 200 6907
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:20 -0500] "GET /roboweb/css/style_header.css HTTP/1.1" 404 1007
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:20 -0500] "GET /roboweb/css/style_header.css HTTP/1.1" 404 1007
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:27 -0500] "GET /roboweb/NewRobot.jsp HTTP/1.1" 200 10020
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:27 -0500] "GET /roboweb/css/style_header.css HTTP/1.1" 404 1007
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:50 -0500] "GET /roboweb/welcome.jsp HTTP/1.1" 200 6907
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:50 -0500] "GET /roboweb/css/style_header.css HTTP/1.1" 404 1007
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:50 -0500] "GET /roboweb/css/style_header.css HTTP/1.1" 404 1007
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:55 -0500] "GET /roboweb/PlayBattle.jsp HTTP/1.1" 200 13194
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:55 -0500] "GET /roboweb/css/style_header.css HTTP/1.1" 404 1007
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:55 -0500] "GET /resources/demos/style.css HTTP/1.1" 404 1001
+0:0:0:0:0:0:0:1 - - [10/Sep/2017:16:07:56 -0500] "GET /resources/demos/style.css HTTP/1.1" 404 1001
