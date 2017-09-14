@@ -121,7 +121,7 @@
 		<echo>Deploying war to local tomcat folder: ${apache.tomcat.home}/webapps</echo>
 		<echo>Don't forget to start tomcat ./${apache.tomcat.home}/bin/startup.sh or startup.bat</echo>
 		<echo>Then point your favorite web browser to http://localhost:8080/roboweb/</echo>
-		<copy todir="${webapps}">
+		<copy todir="${apache.tomcat.home}/webapps">
 			<fileset dir="${roboweb.project.dist}/local" includes="roboweb.war" />
 		</copy>
 	</target>
