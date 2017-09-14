@@ -1,8 +1,1 @@
-if (session == null)
-{
-  
-}
-else
-{
- 
-}
+

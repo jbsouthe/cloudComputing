@@ -80,7 +80,7 @@
 					</ul></li>
 				<li class="page-scroll"><a href="PlayBattle.jsp">Play Battle!</a></li>
 				<li class="page-scroll"><a href="#view">Settings</a></li>
-				<li class="page-scroll"><a href="#view"><img
+				<li class="page-scroll"><a href="Logout.jsp"><img
 						class="img-responsive" src="img/power button.png" alt=""
 						ALIGN="RIGHT" hspace="1">Logout</a></li>
 			</ul>

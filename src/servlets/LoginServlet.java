@@ -62,9 +62,7 @@ public class LoginServlet extends HttpServlet {
 			if (null != attribsMap) {
 				for (i = 0; i < attribsMap.getLength(); i++) {
 					Node attrib = attribsMap.item(i);
-					if (attrib
-							.getNodeValue()
-							.equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")) {
+					if (attrib.getNodeValue().equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")) {
 						// System.out.println("Attribute: <b>" +
 						// ((org.w3c.dom.Node) attrib).getNodeName() + "</b>: "
 						// + ((org.w3c.dom.Node) attrib).getNodeValue() +
@@ -189,7 +187,7 @@ public class LoginServlet extends HttpServlet {
 			String roleName = request.getParameter("user_role");
 			System.out.println("current role:" + roleName);
 			if (roleName == null) {
-
+                            response.sendRedirect("Login.jsp");
 			} else {
 				session.setAttribute("SelectedItem", roleName);
 			}
