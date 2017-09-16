@@ -32,6 +32,7 @@
         <mkdir dir="${roboweb.project.build}/test"/>
         <mkdir dir="${roboweb.project.javadocs}"/>
         <mkdir dir="${roboweb.project.dist}"/>
+        <mkdir dir="${roboweb.project.dist}/local"/>
     </target>
     
     <target name="clean" 
