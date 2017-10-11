@@ -1,0 +1,5 @@
+---
+applications:
+- name: cloud-computing
+  instances: 1
+  command: ./apache-tomcat-7.0.81/bin/startup.sh
