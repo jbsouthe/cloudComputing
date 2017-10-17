@@ -1,0 +1,7 @@
+set -e
+
+wget http://javadl.oracle.com/webapps/download/AutoDL?BundleId=225343_090f390dda5b47b9b721c7dfaa008135 -O ${BOSH_INSTALL_TARGET}/jre-8u144-linux-i586.tar
+cd /usr
+tar xvf ${BOSH_INSTALL_TARGET}/jre-8u144-linux-i586.tar
+ln -s /usr/jre1.8.0_144 /usr/java
+

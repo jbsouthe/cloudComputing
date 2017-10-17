@@ -1,0 +1,21 @@
+name: roboweb-0.1
+version: 0+dev.2
+commit_hash: non-git
+uncommitted_changes: false
+jobs:
+- name: app
+  version: cb023eab52f6d244cd3c4950441d17e44bba14fe
+  fingerprint: cb023eab52f6d244cd3c4950441d17e44bba14fe
+  sha1: bd3f951d83ebc35caabe803f5ef8c70e5cca2542
+packages:
+- name: java
+  version: 8e3e907fcabd834b97ba8cea924f75875385311b
+  fingerprint: 8e3e907fcabd834b97ba8cea924f75875385311b
+  sha1: 10306ecc8bf2d1f2841e898eff3c4d8bff97e387
+  dependencies: []
+- name: tomcat
+  version: c72a42ba3afde51b9ed0f6e36da2d9751b66713d
+  fingerprint: c72a42ba3afde51b9ed0f6e36da2d9751b66713d
+  sha1: ddffdde6f5e40e5ce48caf246e3595ed3886f9a0
+  dependencies:
+  - java

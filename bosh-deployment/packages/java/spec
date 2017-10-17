@@ -1,0 +1,7 @@
+---
+name: java
+
+dependencies: []
+
+files: 
+- jre-8u144-linux-i586.tar

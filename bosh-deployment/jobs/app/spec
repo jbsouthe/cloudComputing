@@ -1,0 +1,16 @@
+---
+name: app
+templates:
+  ctl: bin/ctl
+
+packages:
+- tomcat
+- java
+
+properties:
+  mysqlHost:
+    description: "IP Address for mysql server, default is localhost, app is looking for node8 ip address"
+    default: 127.0.0.1
+  port:
+    description: "Port on which server is listening"
+    default: 8080

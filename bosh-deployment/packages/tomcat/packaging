@@ -1,0 +1,7 @@
+set -e
+
+cp apache-tomcat-7.0.81-robocode.tar.gz ${BOSH_INSTALL_TARGET}
+cd ${BOSH_INSTALL_TARGET}
+
+tar xzvf apache-tomcat-7.0.81-robocode.tar.gz
+
