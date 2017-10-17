@@ -7,7 +7,7 @@ cd ${BOSH_INSTALL_TARGET}
 
 wget -q http://javadl.oracle.com/webapps/download/AutoDL?BundleId=225343_090f390dda5b47b9b721c7dfaa008135 -O ${BOSH_INSTALL_TARGET}/jre-8u144-linux-i586.tar
 
-tar --no-same-owner xf ${BOSH_INSTALL_TARGET}/jre-8u144-linux-i586.tar
+tar xf ${BOSH_INSTALL_TARGET}/jre-8u144-linux-i586.tar --no-same-owner 
 
 
 echo $PWD
