@@ -22,7 +22,7 @@ case $1 in
 
     echo $$ > $PIDFILE
 
-	echo node8 <%= p("mysqlHost") %> >> /etc/hosts
+	echo <%= p("mysqlHost") %> node8 >> /etc/hosts
 
     exec /var/vcap/packages/tomcat/apache-tomcat-7.0.81/bin/catalina.sh run \
       >>$LOG_DIR/server.stdout.log 2>>$LOG_DIR/server.stderr.log
