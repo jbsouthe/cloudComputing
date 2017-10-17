@@ -5,6 +5,8 @@ builds:
     version: 0+dev.15
   1770f78c-f60a-45e8-6ef0-76453f801e71:
     version: 0+dev.18
+  2d7b8218-1721-431d-7414-48f6087afe86:
+    version: 0+dev.23
   33300ef4-5c56-4b74-4dac-20a51c72d038:
     version: 0+dev.9
   42d399d8-f092-42e2-7b13-8ad3c02d4580:
