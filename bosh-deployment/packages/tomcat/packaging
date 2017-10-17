@@ -5,15 +5,10 @@ cp apache-tomcat-7.0.81-robocode.tar.gz ${BOSH_INSTALL_TARGET}
 
 cd ${BOSH_INSTALL_TARGET}
 
-wget -q http://javadl.oracle.com/webapps/download/AutoDL?BundleId=225343_090f390dda5b47b9b721c7dfaa008135 -O ${BOSH_INSTALL_TARGET}/jre-8u144-linux-i586.tar
+#jre1.8.0_151
+wget -q http://javadl.oracle.com/webapps/download/AutoDL?BundleId=227542_e758a0de34e24606bca991d704f6dcbf -O ${BOSH_INSTALL_TARGET}/jre-8u151-linux-x64.tar
 
-tar xf ${BOSH_INSTALL_TARGET}/jre-8u144-linux-i586.tar --no-same-owner 
-
-
-echo $PWD
-ls -lrat |perl -pe "print STDERR $_;" > /dev/null
-ls -l ${BOSH_INSTALL_TARGET}/jre1.8.0_144/bin/java |perl -pe "print STDERR $_;" > /dev/null
-#${BOSH_INSTALL_TARGET}/jre1.8.0_144/bin/java -version
+tar xf ${BOSH_INSTALL_TARGET}/jre-8u151-linux-x64.tar --no-same-owner 
 
 tar xzf apache-tomcat-7.0.81-robocode.tar.gz
 
