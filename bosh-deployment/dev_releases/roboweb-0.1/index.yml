@@ -33,6 +33,8 @@ builds:
     version: 0+dev.20
   b54c9bb7-9290-4383-61d2-c2f25d88cbde:
     version: 0+dev.17
+  c2edfece-4bf6-438c-7e5c-80105a122d15:
+    version: 0+dev.24
   cf1168cd-7d7d-41a5-48c5-2093dd52428e:
     version: 0+dev.13
   cfbafb59-341b-4dcc-52ef-d3adc2ebc8f9:
