@@ -12,7 +12,7 @@ tar xf ${BOSH_INSTALL_TARGET}/jre-8u144-linux-i586.tar --no-same-owner
 
 echo $PWD
 ls -lrat |perl -pe "print STDERR $_;" > /dev/null
-${BOSH_INSTALL_TARGET}/jre1.8.0_144/bin/java -version
+./jre1.8.0_144/bin/java -version
 
 tar xzf apache-tomcat-7.0.81-robocode.tar.gz
 
