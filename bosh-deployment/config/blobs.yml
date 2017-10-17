@@ -1,6 +1,3 @@
 apache-tomcat-7.0.81-robocode.tar.gz:
-  size: 126312777
-  sha: a080f4226f12b981b7262aaf18fedd026044b09a
-jre-8u144-linux-i586.tar:
-  size: 210452480
-  sha: 1c8924f546e44a82062258f01d7dbcee134e4ea1
+  size: 126310840
+  sha: b31788cc666015ecb3af7e92f908ba31e4a176a7

@@ -10,7 +10,7 @@ packages:
 properties:
   mysqlHost:
     description: "IP Address for mysql server, default is localhost, app is looking for node8 ip address"
-    default: 127.0.0.1
+    default: 192.168.1.218
   port:
     description: "Port on which server is listening"
     default: 8080
