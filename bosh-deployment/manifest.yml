@@ -8,7 +8,7 @@ releases:
 networks:
 - name: default
   subnets:
-  - range: 10.244.0.0/28
+  - range: 10.244.0.0/20
     reserved: [10.244.0.1]
     static: [10.244.0.2,10.244.0.6,10.244.0.10]
 
