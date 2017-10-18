@@ -28,4 +28,16 @@
      Welcome to Tomcat
   </description>
 
+
+<servlet>
+      <servlet-name>Example</servlet-name>     
+      <servlet-class>tomcat7.Servlet3</servlet-class>
+</servlet>
+
+<servlet-mapping>
+      <servlet-name>Example</servlet-name>
+      <url-pattern>/servlets/servlet/example</url-pattern>
+</servlet-mapping>
+
+
 </web-app>

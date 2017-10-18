@@ -104,6 +104,13 @@
 #                   case the default is "true"
 # -----------------------------------------------------------------------------
 
+
+#USE VCAP PORT IF IT EXISTS, OTHERWISE DEFAULT TO 8080
+if [ -z ${VCAP_APP_PORT} ]; then
+export VCAP_APP_PORT=8080
+fi
+export JAVA_OPTS="-Dport.http.nonssl=$VCAP_APP_PORT $JAVA_OPTS"
+
 # OS specific support.  $var _must_ be set to either true or false.
 cygwin=false
 darwin=false
