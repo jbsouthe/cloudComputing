@@ -117,15 +117,19 @@ public class RobotStatistics implements robocode.peer.ContestantStatistics {
 	}
 
 	public void generateTotals() {
-		totalSurvivalScore += survivalScore;
-		totalLastSurvivorBonus += lastSurvivorBonus;
-		totalBulletDamageScore += bulletDamageScore;
+		/*Team A modification:
+ *			Survival doesn't matter. Kills only.
+ * 		*/
+		//totalSurvivalScore += survivalScore;
+		//totalLastSurvivorBonus += lastSurvivorBonus;
+		//totalBulletDamageScore += bulletDamageScore;
 		totalBulletKillBonus += bulletKillBonus;
-		totalRammingDamageScore += rammingDamageScore;
+		//totalRammingDamageScore += rammingDamageScore;
 		totalRammingKillBonus += rammingKillBonus;
 
-		totalScore = totalBulletDamageScore + totalRammingDamageScore + totalSurvivalScore + totalRammingKillBonus
-				+ totalBulletKillBonus + totalLastSurvivorBonus;
+		totalScore = totalRammingKillBonus + totalBulletKillBonus 
+		//totalScore = totalBulletDamageScore + totalRammingDamageScore + totalSurvivalScore + totalRammingKillBonus
+		//		+ totalBulletKillBonus + totalLastSurvivorBonus;
 		LogUtil.log("=========="+totalScore);
 	}
 
