@@ -1,0 +1,6 @@
+---
+applications:
+- name: cloud-computing
+  instances: 2
+  command: ./apache-tomcat-7.0.81/bin/startup.sh
+  memory: 1024M

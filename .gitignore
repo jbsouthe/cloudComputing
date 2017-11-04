@@ -36,6 +36,5 @@ base
 apache-tomcat-*/logs/**
 apache-tomcat-*/temp/**
 apache-tomcat-*/work/**
-apache-tomcat-*/webapps/roboweb/*
 apache-tomcat-*/webapps/roboweb.war
 javadocs/**
