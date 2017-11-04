@@ -4,5 +4,6 @@ applications:
   instances: 2
   command: ./bin/startup.sh
   memory: 1024M
-  env:
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  env: 
     JAVA_HOME: /usr/bin/java
