@@ -2,5 +2,7 @@
 applications:
 - name: cloud-computing
   instances: 2
-  command: ./startup.sh
+  command: ./bin/startup.sh
   memory: 1024M
+  env:
+    JAVA_HOME: /usr/bin/java
