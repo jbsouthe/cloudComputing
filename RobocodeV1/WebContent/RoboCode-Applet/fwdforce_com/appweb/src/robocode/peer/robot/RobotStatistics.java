@@ -130,7 +130,7 @@ public class RobotStatistics implements robocode.peer.ContestantStatistics {
 		totalScore = totalRammingKillBonus + totalBulletKillBonus 
 		//totalScore = totalBulletDamageScore + totalRammingDamageScore + totalSurvivalScore + totalRammingKillBonus
 		//		+ totalBulletKillBonus + totalLastSurvivorBonus;
-		LogUtil.log("=========="+totalScore);
+		LogUtil.log("_-_-_-_-_-   Score: "+totalScore);
 	}
 
 	public double getTotalScore() {
