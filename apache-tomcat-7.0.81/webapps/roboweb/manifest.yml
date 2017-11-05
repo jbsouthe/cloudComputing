@@ -1,9 +1,0 @@
----
-applications:
-- name: cloud-computing
-  instances: 2
-  command: ./bin/startup.sh
-  memory: 1024M
-  buildpack: https://github.com/cloudfoundry/java-buildpack.git
-  env: 
-    JAVA_HOME: /usr/bin/java

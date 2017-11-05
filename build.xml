@@ -95,8 +95,8 @@
 		<war destfile="${roboweb.project.dist}/${param}/roboweb.war" webxml="${roboweb.project.web}/${param}/WEB-INF/web.xml">
 			<lib dir="${roboweb.project.lib}">
 				<include name="*.jar" />
-				<exclude name="servlet*.jar" />
-				<exclude name="mysql-connector-java-*-bin.jar" />
+				<exclude name="javax.servlet*.jar" />
+				<!-- <exclude name="mysql-connector-java-*-bin.jar" /> -->
 			</lib>
 			<lib dir="${roboweb.project.dist}">
 				<include name="${roboweb.web.jarName}" />

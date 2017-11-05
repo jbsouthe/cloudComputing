@@ -169,7 +169,7 @@ function onloadPage(){
 							HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 							HashMap<String, List<String>> domain_robot_map = new HashMap<String, List<String>>();							
 								try {
-									String connectionURL = "jdbc:mysql://localhost:3306/robocode";
+									String connectionURL = "jdbc:mysql://192.168.1.218:3306/robocode";
 									Class.forName("com.mysql.jdbc.Driver").newInstance();
 									Connection connection = DriverManager.getConnection(connectionURL, "root",
 											"root");
