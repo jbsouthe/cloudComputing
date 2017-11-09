@@ -1,0 +1,27 @@
+So, the impression I got from last meeting was that the professor doesn't want us to have a single mapping of users-to-roles.
+
+Rather, she wants us to create a program that can be used to dynamically create roles with different permissions. And dynamically assign those roles to users.
+
+
+
+
+Robots - fetched from database
+Users - fetched from database
+Roles - fetched from database
+
+Permissions = 4 of them for each Robot 
+
+`role` command lets you add roles; you assign the role permissions using a Robot name and a permission level (1-4); this is then sent to the database
+
+`user` command lets you add users; you assign a username and a list of roles
+
+[10:58 AM, 11/6/2017] +1 (214) 469-8677: 1 - View only
+2 - View+Edit
+3 - View+Edit+Compile
+4 - View+Edit+Compile+Play
+[11:04 AM, 11/6/2017] +1 (214) 469-8677: To create roles, we could write a program in Python that accepts as input pairs (Robot-PermissionLevel)
+[11:05 AM, 11/6/2017] +1 (214) 469-8677: And then to create users, we write a program that accepts as input pairs (User-Role)
+[11:06 AM, 11/6/2017] +1 (214) 469-8677: The Python scripts call MySQL and add these new entities to the corresponding table
+[11:08 AM, 11/6/2017] +1 (214) 469-8677: ignore my previous sql schema
+There could be a Role table where each column is a Robot and the cells are Permission Levels
+[11:08 AM, 11/6/2017] +1 (214) 469-8677: And a User table where each column is a Role and the cells are booleans (yes, that User has that Role, or no, that User does not have that Role)
