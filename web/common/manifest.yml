@@ -1,5 +1,5 @@
 ---
 applications:
 - name: robodev
-  instances: 2
+  instances: 1
   memory: 1024M
