@@ -7,8 +7,11 @@ sudo mv ~/Downloads/bosh-cli-* /usr/local/bin/bosh
 
 git clone https://github.com/cloudfoundry/bosh-deployment ~/workspace/bosh-deployment
 mkdir -p ~/workspace/deployments/vbox
-cd ~/workspace/deployments/vbox
 
+cd ~/Downloads
+wget --content-disposition https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3468.5
+
+cd ~/workspace/deployments/vbox
 bosh create-env ~/workspace/bosh-deployment/bosh.yml \
   --state ~/workspace/deployments/vbox/state.json \
   -o ~/workspace/bosh-deployment/virtualbox/cpi.yml \
