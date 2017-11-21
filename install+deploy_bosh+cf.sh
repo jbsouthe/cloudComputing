@@ -51,6 +51,8 @@ cf create-org cloudfoundry
 cf target -o cloudfoundry
 cf create-space development
 cf target -o cloudfoundry -s development
+cf create-user karan karan
+cf set-org-role karan cloudfoundry OrgManager
 
 # deploy hello world
 git clone https://github.com/vchrisb/cf-helloworld ~/workspace/cf-helloworld
