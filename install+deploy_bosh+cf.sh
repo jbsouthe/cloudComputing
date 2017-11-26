@@ -30,6 +30,8 @@ export BOSH_CLIENT=admin
 export BOSH_CLIENT_SECRET=`bosh int ~/workspace/deployments/vbox/creds.yml --path /admin_password`
 export BOSH_ENVIRONMENT=vbox
 
+bosh upload-stemcell ~/Downloads/bosh-stemcell-3468.5-warden-boshlite-ubuntu-trusty-go_agent.tgz
+
 git clone https://github.com/cloudfoundry/cf-deployment ~/workspace/cf-deployment
 cd ~/workspace/cf-deployment
 
@@ -51,4 +53,9 @@ cf target -o cloudfoundry -s development
 # deploy hello world
 git clone https://github.com/vchrisb/cf-helloworld ~/workspace/cf-helloworld
 cd ~/workspace/cf-helloworld
+cf push
+
+# deploy Robocode
+git clone https://github.com/jbsouthe/cloudComputing ~/workspace/cloudComputing
+cd /home/admin/workspace/cloudComputing/dist/local/robodev
 cf push
