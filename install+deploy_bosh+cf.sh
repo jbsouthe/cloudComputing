@@ -1,14 +1,18 @@
 #!/bin/bash -x
 #https://banck.net/2017/03/deploying-cloud-foundry-virtualbox-using-bosh-cli-v2/
 
-(cd ~/Downloads; wget https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.45-linux-amd64 )
+(cd ~/Downloads; wget https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.45-linux-amd64; curl -L "https://cli.run.pivotal.io/stable?release=macosx64-binary&source=github" -o cf-cli-latest.rpm; )
+rpm -i ~/Downloads/cf-cli-latest.rpm
 chmod +x ~/Downloads/bosh-cli-*
 sudo mv ~/Downloads/bosh-cli-* /usr/local/bin/bosh
 
 git clone https://github.com/cloudfoundry/bosh-deployment ~/workspace/bosh-deployment
 mkdir -p ~/workspace/deployments/vbox
-cd ~/workspace/deployments/vbox
 
+cd ~/Downloads
+wget --content-disposition https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3468.5
+
+cd ~/workspace/deployments/vbox
 bosh create-env ~/workspace/bosh-deployment/bosh.yml \
   --state ~/workspace/deployments/vbox/state.json \
   -o ~/workspace/bosh-deployment/virtualbox/cpi.yml \
@@ -49,6 +53,8 @@ cf create-org cloudfoundry
 cf target -o cloudfoundry
 cf create-space development
 cf target -o cloudfoundry -s development
+cf create-user karan karan
+cf set-org-role karan cloudfoundry OrgManager
 
 # deploy hello world
 git clone https://github.com/vchrisb/cf-helloworld ~/workspace/cf-helloworld
