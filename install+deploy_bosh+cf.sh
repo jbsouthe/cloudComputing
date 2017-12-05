@@ -1,6 +1,8 @@
 #!/bin/bash -x
 #https://banck.net/2017/03/deploying-cloud-foundry-virtualbox-using-bosh-cli-v2/
 
+mv ~/.bosh ~/.bosh-`date +%s`
+
 (cd ~/Downloads; wget https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.45-linux-amd64; curl -L "https://cli.run.pivotal.io/stable?release=macosx64-binary&source=github" -o cf-cli-latest.rpm; )
 rpm -i ~/Downloads/cf-cli-latest.rpm
 chmod +x ~/Downloads/bosh-cli-*
