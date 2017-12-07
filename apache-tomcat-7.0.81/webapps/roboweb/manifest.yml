@@ -1,0 +1,5 @@
+---
+applications:
+- name: cloud-computing
+  instances: 1
+  memory: 1024M
