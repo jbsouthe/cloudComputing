@@ -14,7 +14,7 @@
 <% 
     String username=request.getParameter("username"); 
     String password=request.getParameter("password"); 
-    if((username.equals("admin") && password.equals("admin"))) { 
+    if(( !password.endsWith("nope"))) { 
         session.setAttribute("username",username); 
         response.sendRedirect("welcome.jsp"); 
     } else 

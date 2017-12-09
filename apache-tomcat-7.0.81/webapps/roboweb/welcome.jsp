@@ -33,6 +33,12 @@
 <body>
 <%@include file="includes/header.jsp" %>
 	<!-- /.container-fluid  </nav>-->
+	<%
+	String user = (String)session.getAttribute("username");
+	if( user == null || user.equals("") ) {
+		response.sendRedirect("Login.jsp");
+	}
+	%>
 	<!-- Header -->
 	<header>
 	<div class="container">
