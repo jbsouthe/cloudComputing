@@ -135,6 +135,14 @@
 			
 								Statement statement = connection.createStatement();
 
+								String editPermissionsCheckString="SELECT *
+								FROM roles JOIN roles_type
+								ON roles_type.Name=roles.role
+								WHERE roles.userID="+user+" AND roles_type.Edit=Y";
+								resultset = statement.executeQuery(editPermissionsCheckString);
+								if(!resultset.next())
+									response.sendRedirect("Login.jsp"); 
+
 								String selectString="SELECT space FROM roles WHERE userID="+user;
 								resultset = statement.executeQuery(selectString);
 								resultset.next();
