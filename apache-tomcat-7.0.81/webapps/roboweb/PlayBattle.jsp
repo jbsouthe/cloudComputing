@@ -126,13 +126,17 @@ function getValueFromApplet(){
 				try {
 					String connectionURL = "jdbc:mysql://192.168.1.218:3306/robocode";
 					Class.forName("com.mysql.jdbc.Driver").newInstance();
-					Connection connection = DriverManager.getConnection(connectionURL, "root",
-							"root");
+					Connection connection = DriverManager.getConnection(connectionURL, "root","root");
 
 					Statement statement = connection.createStatement();
-					String selectString="SELECT userID, packageID, robotID from robot where userID='"+user+"'";
-					resultset = statement
-							.executeQuery(selectString);
+					String selectString="SELECT space FROM roles WHERE userID="+user;
+					resultset = statement.executeQuery(selectString);
+					resultset.next();
+					String userSpace = resultset.getString("space");
+
+					String selectString="SELECT userID, packageID, robotID
+										from robot where robot.space="+userSpace;
+					resultset = statement.executeQuery(selectString);
 					
 							%>
 <script type="text/javascript">
