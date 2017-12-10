@@ -2,15 +2,16 @@
 
 # $1 = username and password
 # $2 = org
-# $3 = org role
+# $3 = space
+# $4 = space role
 
 cf create-user $1 $1
-cf set-org-role $1 $2 $3
+cf set-space-role $1 $2 $3 $4
 
 USERNAME=admin
 HOSTNAME=node8
-MYSQLSTART='mysql -u root robocode -e "insert into roles (userid,role, org) values('
-VALUES="'"$1"','"$3"','"$2"'"
+MYSQLSTART='mysql -u root robocode -e "insert into roles (userid, role, space) values('
+VALUES="'"$1"','"$$"','"$2$3"'"
 MYSQLEND=');"'
 SCRIPT=$MYSQLSTART$VALUES$MYSQLEND 
 echo $SCRIPT
