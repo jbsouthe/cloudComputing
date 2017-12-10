@@ -135,20 +135,17 @@ function Open(){
 		
 							Statement statement = connection.createStatement();
 
-							String editPermissionsCheckString="SELECT *
-							FROM roles JOIN roles_type
-							ON roles_type.Name=roles.role
-							WHERE roles.userID="+user+" AND roles_type.Edit=Y";
+							String editPermissionsCheckString="SELECT * FROM roles JOIN roles_type ON roles_type.Name=roles.role WHERE roles.userid='"+user+"' AND roles_type.Edit='Y'";
 							resultset = statement.executeQuery(editPermissionsCheckString);
 							if(!resultset.next())
-								response.sendRedirect("Login.jsp"); 
+								response.sendRedirect("welcome.jsp"); 
 
-							String selectString="SELECT space FROM roles WHERE userID="+user;
+							String selectString="SELECT space FROM roles WHERE userid='"+user+"'";
 							resultset = statement.executeQuery(selectString);
 							resultset.next();
 							String userSpace = resultset.getString("space");
 		
-							String selectString="SELECT space, packageID, robotID from robot where robot.space="+userSpace;
+							String selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
 							resultset = statement.executeQuery(selectString);
 
 										%>
