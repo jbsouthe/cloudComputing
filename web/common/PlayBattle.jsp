@@ -143,7 +143,7 @@ if( user == null || user.equals("") ) {
 				resultset.next();
 				String userSpace = resultset.getString("space");
 
-				String selectString="SELECT userID, packageID, robotID
+				String selectString="SELECT space, packageID, robotID
 									from robot where robot.space="+userSpace;
 				resultset = statement.executeQuery(selectString);
 				
