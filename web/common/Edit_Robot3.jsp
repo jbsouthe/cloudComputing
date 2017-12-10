@@ -128,17 +128,22 @@
 							Set<String> list_of_robots = new HashSet<String>();
 							HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 							HashMap<String, List<String>> domain_robot_map = new HashMap<String, List<String>>();							
-								try {
-									String connectionURL = "jdbc:mysql://192.168.1.218:3306/robocode";
-									Class.forName("com.mysql.jdbc.Driver").newInstance();
-									Connection connection = DriverManager.getConnection(connectionURL, "root",
-											"root");
+							try {
+								String connectionURL = "jdbc:mysql://192.168.1.218:3306/robocode";
+								Class.forName("com.mysql.jdbc.Driver").newInstance();
+								Connection connection = DriverManager.getConnection(connectionURL, "root","root");
+			
+								Statement statement = connection.createStatement();
 
-									Statement statement = connection.createStatement();
-									String selectString="SELECT userID, packageID, robotID from robot";
-									resultset = statement
-											.executeQuery(selectString);
-									
+								String selectString="SELECT space FROM roles WHERE userID="+user;
+								resultset = statement.executeQuery(selectString);
+								resultset.next();
+								String userSpace = resultset.getString("space");
+			
+								String selectString="SELECT userID, packageID, robotID
+													from robot where robot.space="+userSpace;
+								resultset = statement.executeQuery(selectString);
+
 											%>
 <script type="text/javascript">
 		function getDomains() {
