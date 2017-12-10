@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# $1 = username and password
+# $2 = org
+# $3 = space
+# $4 = space role
+
+cf create-user $1 $1
+cf set-space-role $1 $2 $3 $4
+
+USERNAME=admin
+HOSTNAME=node8
+MYSQLSTART='mysql -u root robocode -e "insert into roles (userid,role) values('
+VALUES="'"$1"','"$4"'"
+MYSQLEND=');"'
+SCRIPT=$MYSQLSTART$VALUES$MYSQLEND 
+echo $SCRIPT
+
+ssh -o StrictHostKeyChecking=no -l ${USERNAME} ${HOSTNAME} "${SCRIPT}"
+exit
+

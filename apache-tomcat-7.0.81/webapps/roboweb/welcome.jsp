@@ -38,6 +38,7 @@
 	if( user == null || user.equals("") ) {
 		response.sendRedirect("Login.jsp");
 	}
+        pageContext.setAttribute("user", user);
 	%>
 	<!-- Header -->
 	<header>
@@ -47,8 +48,9 @@
 				<img class="img-responsive" src="includes/robocode_logo_tanks.png"
 					alt="">
 				<div class="intro-text">
-					<span class="name">Welcome to Robocode!</span>
-					<hr class="star-light">
+					<span class="name">Welcome to Robocode, 
+                                        <c:out value="${user}" escapeXml="false" />! </span> 
+                                        <hr class="star-light">
 					<span class="skills">Build the best, destroy the rest!</span>
 				</div>
 			</div>

@@ -48,7 +48,8 @@
 					alt="">
 				<div class="intro-text">
 					<span class="name">Welcome to Robocode!</span>
-					<hr class="star-light">
+				        <script>document.write(user); </script>	
+                                        <hr class="star-light">
 					<span class="skills">Build the best, destroy the rest!</span>
 				</div>
 			</div>

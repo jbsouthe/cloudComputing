@@ -13,6 +13,7 @@
         <h1>Login Page</h1> 
     <center> 
         <h2>Signup Details</h2> 
+        <h3 style="color:red">Incorrect Credentials! </h3>
         <form action="LoginCheck.jsp" method="post"> 
             <br/>Username:<input type="text" name="username"> 
             <br/>Password:<input type="password" name="password"> 

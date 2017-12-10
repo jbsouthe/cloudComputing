@@ -38,6 +38,12 @@
 </head>
 
 <body onload ="onloadPage()">
+	<%
+	String user = (String)session.getAttribute("username");
+	if( user == null || user.equals("") ) {
+		response.sendRedirect("Login.jsp");
+	}
+	%>
 <script type="text/javascript">
 function onloadPage(){
 	 document.getElementById('textArea').style.display = "none";
@@ -175,7 +181,7 @@ function onloadPage(){
 											"root");
 
 									Statement statement = connection.createStatement();
-									String selectString="SELECT userID, packageID, robotID from robot";
+									String selectString="SELECT userID, packageID, robotID from robot where userId = '"+ (String)session.getAttribute("username") +"'";
 									resultset = statement
 											.executeQuery(selectString);
 									

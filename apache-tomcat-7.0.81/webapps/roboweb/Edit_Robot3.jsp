@@ -38,6 +38,12 @@
 </head>
 
 <body>
+	<%
+	String user = (String)session.getAttribute("username");
+	if( user == null || user.equals("") ) {
+		response.sendRedirect("Login.jsp");
+	}
+	%>
 <%@include file="includes/header.jsp" %>
 <!--  <body id="page-top" class="index">
 	<!-- /.container-fluid  </nav> -->
@@ -135,7 +141,7 @@
 											"root");
 
 									Statement statement = connection.createStatement();
-									String selectString="SELECT userID, packageID, robotID from robot";
+									String selectString="SELECT userID, packageID, robotID from robot where userID = '"+ (String)session.getAttribute("username") +"' or dataaccess ='all' ";
 									resultset = statement
 											.executeQuery(selectString);
 									

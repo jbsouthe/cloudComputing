@@ -111,6 +111,13 @@ function getValueFromApplet(){
 <div class="form-group">
 	<div class="input-group">
 		<%
+
+	String user = (String)session.getAttribute("username");
+	if( user == null || user.equals("") ) {
+		response.sendRedirect("Login.jsp");
+	}
+        pageContext.setAttribute("user", user);
+
 			Set<String> list_of_tenants = new HashSet<String>();
 			Set<String> list_of_domains = new HashSet<String>();
 			Set<String> list_of_robots = new HashSet<String>();
@@ -123,7 +130,7 @@ function getValueFromApplet(){
 							"root");
 
 					Statement statement = connection.createStatement();
-					String selectString="SELECT userID, packageID, robotID from robot";
+					String selectString="SELECT userID, packageID, robotID from robot where userID='"+user+"'";
 					resultset = statement
 							.executeQuery(selectString);
 					

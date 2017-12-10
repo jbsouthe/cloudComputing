@@ -2,4 +2,4 @@
 applications:
 - name: robodev
   instances: 1
-  memory: 1024M
+  memory: 2048M
