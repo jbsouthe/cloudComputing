@@ -135,22 +135,26 @@ function Open(){
 		
 							Statement statement = connection.createStatement();
 
-							String editPermissionsCheckString="SELECT *
+							String editPermissionsCheckString="SELECT roles.role
 							FROM roles JOIN roles_type
 							ON roles_type.Name=roles.role
-							WHERE roles.userID="+user+" AND roles_type.Edit=Y";
+							WHERE roles.userID="+user+" AND roles_type.Edit='Y'";
 							resultset = statement.executeQuery(editPermissionsCheckString);
 							if(!resultset.next())
-								response.sendRedirect("Login.jsp"); 
-
-							String selectString="SELECT space FROM roles WHERE userID="+user;
-							resultset = statement.executeQuery(selectString);
-							resultset.next();
-							String userSpace = resultset.getString("space");
-		
-							String selectString="SELECT space, packageID, robotID from robot where robot.space="+userSpace;
-							resultset = statement.executeQuery(selectString);
-
+								response.sendRedirect("WelcomeFail.jsp"); 
+							else if(response.getString("roles.role")=="admin"){
+								String selectString="SELECT space, packageID, robotID from robot;
+								resultset = statement.executeQuery(selectString);
+							}
+							else{
+								String spaceString="SELECT space FROM roles WHERE userID='"+user+"'";
+								resultset = statement.executeQuery(spaceString);
+								resultset.next();
+								String userSpace = resultset.getString("space");
+			
+								String selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
+								resultset = statement.executeQuery(selectString);
+							}
 										%>
 <script type="text/javascript">
 	function getDomains() {
