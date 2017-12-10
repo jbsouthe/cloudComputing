@@ -135,7 +135,7 @@ if( user == null || user.equals("") ) {
 				if(!resultset.next())
 					response.sendRedirect("WelcomeFail.jsp"); 
 				else if(response.getString("roles.role")=="admin"){
-					String selectString="SELECT space, packageID, robotID from robot where robot.space="+userSpace;
+					String selectString="SELECT space, packageID, robotID from robot";
 				}
 				else{
 					String spaceString="SELECT space FROM roles WHERE userID='"+user+"'";
