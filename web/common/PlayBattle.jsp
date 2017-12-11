@@ -129,22 +129,23 @@ if( user == null || user.equals("") ) {
 				Connection connection = DriverManager.getConnection(connectionURL, "root","root");
 
 				Statement statement = connection.createStatement();
-				
-				String playPermissionsCheckString="SELECT *
-				FROM roles JOIN roles_type
-				ON roles_type.Name=roles.role
-				WHERE roles.userID="+user+" AND roles_type.Play=Y";
+
+				String playPermissionsCheckString="SELECT roles.role FROM roles JOIN roles_type ON roles_type.Name=roles.role WHERE roles.userID="+user+" AND roles_type.Edit='Y'";
 				resultset = statement.executeQuery(editPermissionsCheckString);
 				if(!resultset.next())
-					response.sendRedirect("Login.jsp"); 
+					response.sendRedirect("WelcomeFail.jsp"); 
+				else if(response.getString("roles.role")=="admin"){
+					String selectString="SELECT space, packageID, robotID from robot";
+				}
+				else{
+					String spaceString="SELECT space FROM roles WHERE userID='"+user+"'";
+					resultset = statement.executeQuery(spaceString);
+					resultset.next();
+					String userSpace = resultset.getString("space");
 
-				String selectString="SELECT space FROM roles WHERE userID="+user;
-				resultset = statement.executeQuery(selectString);
-				resultset.next();
-				String userSpace = resultset.getString("space");
+					String selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
+				}
 
-				String selectString="SELECT space, packageID, robotID
-									from robot where robot.space="+userSpace;
 				resultset = statement.executeQuery(selectString);
 				
 						%>

@@ -134,6 +134,7 @@ function Open(){
 						Set<String> list_of_robots = new HashSet<String>();
 						HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 						HashMap<String, List<String>> domain_robot_map = new HashMap<String, List<String>>();							
+	String selectString = "";
 						try {
 							String connectionURL = "jdbc:mysql://192.168.1.218:3306/robocode";
 							Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -141,19 +142,22 @@ function Open(){
 		
 							Statement statement = connection.createStatement();
 
-							String editPermissionsCheckString="SELECT * FROM roles JOIN roles_type ON roles_type.Name=roles.role WHERE roles.userid='"+user+"' AND roles_type.Edit='Y'";
+							String editPermissionsCheckString="SELECT roles.role FROM roles JOIN roles_type	ON roles_type.Name=roles.role WHERE roles.userid='"+user+"' AND roles_type.Edit='Y'";
 							resultset = statement.executeQuery(editPermissionsCheckString);
 							if(!resultset.next())
-								response.sendRedirect("welcome.jsp"); 
-
-							String selectString="SELECT space FROM roles WHERE userid='"+user+"'";
+								response.sendRedirect("WelcomeFail.jsp"); 
+							else if(resultset.getString("roles.role")=="admin"){
+								selectString="SELECT space, packageID, robotID from robot";
+							}
+							else{
+								String spaceString="SELECT space FROM roles WHERE userid='"+user+"'";
+								resultset = statement.executeQuery(spaceString);
+								resultset.next();
+								String userSpace = resultset.getString("space");
+			
+								selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
+							}
 							resultset = statement.executeQuery(selectString);
-							resultset.next();
-							String userSpace = resultset.getString("space");
-		
-							selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
-							resultset = statement.executeQuery(selectString);
-
 										%>
 <script type="text/javascript">
 	function getDomains() {
@@ -176,7 +180,7 @@ function Open(){
 	</script>	
 					<select name="domain_name" id="domain_name" class="form-control" onchange="getDomains()"
 						>
-						<option>Select User</option>
+						<option>Select Org-Space</option>
 
 						<%
 								while (resultset.next()) {
