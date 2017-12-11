@@ -123,7 +123,13 @@ function Open(){
 			<div class="form-group">
 				<div class="input-group">
 					<%
-						Set<String> list_of_tenants = new HashSet<String>();
+					                String user = (String)session.getAttribute("username");
+        if( user == null || user.equals("") ) {
+                response.sendRedirect("Login.jsp");
+        }
+        pageContext.setAttribute("user", user);
+	
+                                                Set<String> list_of_tenants = new HashSet<String>();
 						Set<String> list_of_domains = new HashSet<String>();
 						Set<String> list_of_robots = new HashSet<String>();
 						HashMap<String, List<String>> map = new HashMap<String, List<String>>();
@@ -145,7 +151,7 @@ function Open(){
 							resultset.next();
 							String userSpace = resultset.getString("space");
 		
-							String selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
+							selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
 							resultset = statement.executeQuery(selectString);
 
 										%>
