@@ -48,7 +48,8 @@
 				<img class="img-responsive" src="includes/robocode_logo_tanks.png"
 					alt="">
 				<div class="intro-text">
-					<h3 style="color:red"> You lack permissions to do that. </h3>
+					<h3 style="color:red"> You lack permissions to do that, 
+                                        <c:out value="${user}" escapeXml="false" />! </span> </h3>
 					<span class="name">Welcome to Robocode, 
                                         <c:out value="${user}" escapeXml="false" />! </span> 
                                         <hr class="star-light">

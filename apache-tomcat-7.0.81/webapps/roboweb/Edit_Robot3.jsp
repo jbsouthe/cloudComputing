@@ -132,6 +132,7 @@ function Open(){
                                                 Set<String> list_of_tenants = new HashSet<String>();
 						Set<String> list_of_domains = new HashSet<String>();
 						Set<String> list_of_robots = new HashSet<String>();
+						Set<String> list_of_codes = new HashSet<String>();
 						HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 						HashMap<String, List<String>> domain_robot_map = new HashMap<String, List<String>>();							
 	String selectString = "";
@@ -147,7 +148,7 @@ function Open(){
 							if(!resultset.next())
 								response.sendRedirect("WelcomeFail.jsp"); 
 							else if(resultset.getString("roles.role")=="admin"){
-								selectString="SELECT space, packageID, robotID from robot";
+								selectString="SELECT space, packageID, robotID, RobotCode from robot";
 							}
 							else{
 								String spaceString="SELECT space FROM roles WHERE userid='"+user+"'";
@@ -155,8 +156,9 @@ function Open(){
 								resultset.next();
 								String userSpace = resultset.getString("space");
 			
-								selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
-							}
+								selectString="SELECT space, packageID, robotID, RobotCode from robot where robot.space='"+userSpace+"'";
+							
+                                                        }
 							resultset = statement.executeQuery(selectString);
 										%>
 <script type="text/javascript">
@@ -187,9 +189,11 @@ function Open(){
 									list_of_tenants.add(resultset.getString(1));
 									list_of_domains.add(resultset.getString(2));
 									list_of_robots.add(resultset.getString(3));
+									list_of_codes.add(resultset.getString(4));
 									String value1 = resultset.getString(1);
 									String value2 = resultset.getString(2);
 									String value3 = resultset.getString(3);
+									String value4 = resultset.getString(4);
 									List<String> value = map.get(value1);
 									if (value == null) {
 										map.put(value1, new ArrayList<String>());
@@ -213,6 +217,8 @@ function Open(){
 
 									}
 								}
+        						
+							pageContext.setAttribute("code", list_of_codes.iterator().next());
 							
 							Iterator iterator = list_of_tenants.iterator();
 							while (iterator.hasNext()) {
@@ -255,7 +261,7 @@ function Open(){
 					<script type="text/javascript">
 						function RobotNames(value)
 						{
-							
+						 
 							   var x = document.getElementById("domain_name").value;
 									var y = document.getElementById("package").value;
 									$.ajax({
@@ -265,7 +271,7 @@ function Open(){
 										async : false,
 										success : function(html) {
 											editor.getSession().setValue(html);
-											//$("#RobotCode").html(html);
+											$("#RobotCode").html(html);
 											console.log(html);
 										}
 									});
@@ -277,6 +283,9 @@ function Open(){
 					<select name="displayrobots" id="displayrobots" onchange="RobotNames(this.value);"
 						class="form-control" >
 						<option>Select Robot</option>
+                                           <span class="name">Welcome to Robocode,
+                                        <c:out value="${user}" escapeXml="false" />! </span>
+
 					</select>
 
 					<%
@@ -296,6 +305,7 @@ function Open(){
 		</form>
 		<div id="message">
 		 Edit Robot Here
+			<c:out value="${code}" escapeXml="false"/> 
 		</div>
 		  
 		 <div id="RobotCode">

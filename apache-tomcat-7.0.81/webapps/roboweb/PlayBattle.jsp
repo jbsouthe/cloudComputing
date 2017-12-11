@@ -130,7 +130,7 @@ String selectString="";
 
 				Statement statement = connection.createStatement();
 
-				String playPermissionsCheckString="SELECT roles.role FROM roles JOIN roles_type ON roles_type.Name=roles.role WHERE roles.userid='"+user+"' AND roles_type.Edit='Y'";
+				String playPermissionsCheckString="SELECT roles.role FROM roles JOIN roles_type ON roles_type.Name=roles.role WHERE roles.userid='"+user+"' AND roles_type.Play='Y'";
 				resultset = statement.executeQuery(playPermissionsCheckString);
 				if(!resultset.next())
 					response.sendRedirect("WelcomeFail.jsp"); 
