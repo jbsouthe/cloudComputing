@@ -58,7 +58,7 @@ public class CompileServlet extends HttpServlet {
 		Connection conn=null;
 		try{
 			byte[] compiledCode=Compile.compile(packageID, robotID, RobotCode, getServletContext().getRealPath("/")+"robocode.jar");
-			String url = "jdbc:mysql://192.168.1.218:3306/robocode";
+			String url = "jdbc:mysql://localhost:3306/robocode";
 			String user = "root";
 			String password = "root";
 			conn = DriverManager.getConnection(url, user, password);

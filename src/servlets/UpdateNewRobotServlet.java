@@ -62,7 +62,7 @@ public class UpdateNewRobotServlet extends HttpServlet {
 		//String robotCode = (String)request.getAttribute("robocode");
 
 		HttpSession session = request.getSession();
-		String url = "jdbc:mysql://192.168.1.218:3306/robocode";
+		String url = "jdbc:mysql://localhost:3306/robocode";
 		String user = "root";
 		String password = "root";
 

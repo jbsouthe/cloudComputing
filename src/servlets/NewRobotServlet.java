@@ -113,7 +113,7 @@ public class NewRobotServlet extends HttpServlet {
 		robotDTO.setCreatedDate(String.valueOf(new Date()));
 		
 		
-		String url = "jdbc:mysql://192.168.1.218:3306/robocode";
+		String url = "jdbc:mysql://localhost:3306/robocode";
 		String username = "root";
 		String password = "root";
 		String robotCode=

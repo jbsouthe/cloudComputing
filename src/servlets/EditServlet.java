@@ -91,7 +91,7 @@ public class EditServlet extends HttpServlet {
 
 		
 		System.out.println("tenentid "+userid+"packageid "+packageid+"robotName "+robotid);
-		String url = "jdbc:mysql://192.168.1.218:3306/robocode";
+		String url = "jdbc:mysql://localhost:3306/robocode";
 		String user = "root";
 		String password = "root";
 		System.out.println("Hi");
