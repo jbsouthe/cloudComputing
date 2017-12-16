@@ -27,9 +27,11 @@
                                                         "root");
 
     Statement statement = connection.createStatement();
-    String selectString="SELECT userid from roles where userid='"+username+"'";
+    String selectString="SELECT userid,space from roles where userid='"+username+"'";
 resultset = statement.executeQuery(selectString);
 	if(resultset.next()){
+		session.setAttribute("space", resultset.getString("space"));
+		session.setAttribute( "role", resultset.getString("role"));
 	        session.setAttribute("username",username); 
         	response.sendRedirect("welcome.jsp"); 
 	}

@@ -81,6 +81,7 @@ public class EditServlet extends HttpServlet {
 		String robotid = words[2];
 		robotid=robotid.trim();
 		session.setAttribute("tenant_name", userid);
+		String space = (String) session.getAttribute("space");
 		RobotDTO robotAccessDTO = new RobotDTO();
 		robotAccessDTO.setUserId("User");
 		robotAccessDTO.setRobotName(robotid);
@@ -91,7 +92,7 @@ public class EditServlet extends HttpServlet {
 
 		
 		System.out.println("tenentid "+userid+"packageid "+packageid+"robotName "+robotid);
-		String url = "jdbc:mysql://localhost:3306/robocode";
+		String url = "jdbc:mysql://192.168.1.218:3306/robocode";
 		String user = "root";
 		String password = "root";
 		System.out.println("Hi");
@@ -100,7 +101,7 @@ public class EditServlet extends HttpServlet {
 
 		//	System.out.println("Hi");
 			Statement statement = (Statement) conn.createStatement();
-			String newstmt = "SELECT file,filepath,RobotCode,id from robot where robotID='"+robotid+"' and packageID='"+packageid+"' and userID = '"+userid+"'";
+			String newstmt = "SELECT file,filepath,RobotCode,id from robot where robotID='"+robotid+"' and packageID='"+packageid+"' and space = '"+space+"'";
 			System.out.println(newstmt);
 			resultSet = statement.executeQuery(newstmt);
 			//System.out.println("swxwxdedx");

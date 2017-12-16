@@ -123,11 +123,19 @@ function Open(){
 			<div class="form-group">
 				<div class="input-group">
 					<%
-						Set<String> list_of_tenants = new HashSet<String>();
+					                String user = (String)session.getAttribute("username");
+        if( user == null || user.equals("") ) {
+                response.sendRedirect("Login.jsp");
+        }
+        pageContext.setAttribute("user", user);
+	
+                                                Set<String> list_of_tenants = new HashSet<String>();
 						Set<String> list_of_domains = new HashSet<String>();
 						Set<String> list_of_robots = new HashSet<String>();
+						Set<String> list_of_codes = new HashSet<String>();
 						HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 						HashMap<String, List<String>> domain_robot_map = new HashMap<String, List<String>>();							
+	String selectString = "";
 						try {
 							String connectionURL = "jdbc:mysql://192.168.1.218:3306/robocode";
 							Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -135,26 +143,23 @@ function Open(){
 		
 							Statement statement = connection.createStatement();
 
-							String editPermissionsCheckString="SELECT roles.role
-							FROM roles JOIN roles_type
-							ON roles_type.Name=roles.role
-							WHERE roles.userID="+user+" AND roles_type.Edit='Y'";
+							String editPermissionsCheckString="SELECT roles.role FROM roles JOIN roles_type	ON roles_type.Name=roles.role WHERE roles.userid='"+user+"' AND roles_type.Edit='Y'";
 							resultset = statement.executeQuery(editPermissionsCheckString);
 							if(!resultset.next())
 								response.sendRedirect("WelcomeFail.jsp"); 
-							else if(response.getString("roles.role")=="admin"){
-								String selectString="SELECT space, packageID, robotID from robot;
-								resultset = statement.executeQuery(selectString);
+							else if(resultset.getString("roles.role")=="admin"){
+								selectString="SELECT space, packageID, robotID, RobotCode from robot";
 							}
 							else{
-								String spaceString="SELECT space FROM roles WHERE userID='"+user+"'";
+								String spaceString="SELECT space FROM roles WHERE userid='"+user+"'";
 								resultset = statement.executeQuery(spaceString);
 								resultset.next();
 								String userSpace = resultset.getString("space");
 			
-								String selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
-								resultset = statement.executeQuery(selectString);
-							}
+								selectString="SELECT space, packageID, robotID, RobotCode from robot where robot.space='"+userSpace+"'";
+							
+                                                        }
+							resultset = statement.executeQuery(selectString);
 										%>
 <script type="text/javascript">
 	function getDomains() {
@@ -177,16 +182,18 @@ function Open(){
 	</script>	
 					<select name="domain_name" id="domain_name" class="form-control" onchange="getDomains()"
 						>
-						<option>Select User</option>
+						<option>Select Org-Space</option>
 
 						<%
 								while (resultset.next()) {
 									list_of_tenants.add(resultset.getString(1));
 									list_of_domains.add(resultset.getString(2));
 									list_of_robots.add(resultset.getString(3));
+									list_of_codes.add(resultset.getString(4));
 									String value1 = resultset.getString(1);
 									String value2 = resultset.getString(2);
 									String value3 = resultset.getString(3);
+									String value4 = resultset.getString(4);
 									List<String> value = map.get(value1);
 									if (value == null) {
 										map.put(value1, new ArrayList<String>());
@@ -210,6 +217,8 @@ function Open(){
 
 									}
 								}
+        						
+							pageContext.setAttribute("code", list_of_codes.iterator().next());
 							
 							Iterator iterator = list_of_tenants.iterator();
 							while (iterator.hasNext()) {
@@ -252,7 +261,7 @@ function Open(){
 					<script type="text/javascript">
 						function RobotNames(value)
 						{
-							
+						 
 							   var x = document.getElementById("domain_name").value;
 									var y = document.getElementById("package").value;
 									$.ajax({
@@ -262,7 +271,7 @@ function Open(){
 										async : false,
 										success : function(html) {
 											editor.getSession().setValue(html);
-											//$("#RobotCode").html(html);
+											$("#RobotCode").html(html);
 											console.log(html);
 										}
 									});
@@ -274,6 +283,9 @@ function Open(){
 					<select name="displayrobots" id="displayrobots" onchange="RobotNames(this.value);"
 						class="form-control" >
 						<option>Select Robot</option>
+                                           <span class="name">Welcome to Robocode,
+                                        <c:out value="${user}" escapeXml="false" />! </span>
+
 					</select>
 
 					<%
@@ -293,6 +305,7 @@ function Open(){
 		</form>
 		<div id="message">
 		 Edit Robot Here
+			<c:out value="${code}" escapeXml="false"/> 
 		</div>
 		  
 		 <div id="RobotCode">

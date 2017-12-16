@@ -42,21 +42,21 @@
 	%>
 	<!-- Header -->
 	<header>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<img class="img-responsive" src="includes/robocode_logo_tanks.png"
-						alt="">
-					<div class="intro-text">
-						<span class="name">Welcome to Robocode, 
-											<c:out value="${user}" escapeXml="false" />! </span> 
-											<hr class="star-light">
-						<span class="skills">Build the best, destroy the rest!</span>
-					</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<img class="img-responsive" src="includes/robocode_logo_tanks.png"
+					alt="">
+				<div class="intro-text">
+					<span class="name">Welcome to Robocode, 
+                                        <c:out value="${user}" escapeXml="false" />! </span> 
+                                        <hr class="star-light">
+					<span class="skills">Build the best, destroy the rest!</span>
 				</div>
 			</div>
 		</div>
-		</header>
+	</div>
+	</header>
 	<!--  <section id="portfolio">
 	<div class="container">
 		<div class="row">

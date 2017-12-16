@@ -117,7 +117,7 @@ if( user == null || user.equals("") ) {
 	response.sendRedirect("Login.jsp");
 }
 	pageContext.setAttribute("user", user);
-
+String selectString="";
 		Set<String> list_of_tenants = new HashSet<String>();
 		Set<String> list_of_domains = new HashSet<String>();
 		Set<String> list_of_robots = new HashSet<String>();
@@ -130,20 +130,20 @@ if( user == null || user.equals("") ) {
 
 				Statement statement = connection.createStatement();
 
-				String playPermissionsCheckString="SELECT roles.role FROM roles JOIN roles_type ON roles_type.Name=roles.role WHERE roles.userID="+user+" AND roles_type.Edit='Y'";
-				resultset = statement.executeQuery(editPermissionsCheckString);
+				String playPermissionsCheckString="SELECT roles.role FROM roles JOIN roles_type ON roles_type.Name=roles.role WHERE roles.userid='"+user+"' AND roles_type.Play='Y'";
+				resultset = statement.executeQuery(playPermissionsCheckString);
 				if(!resultset.next())
 					response.sendRedirect("WelcomeFail.jsp"); 
-				else if(response.getString("roles.role")=="admin"){
-					String selectString="SELECT space, packageID, robotID from robot";
+				else if(resultset.getString("roles.role")=="admin"){
+					 selectString="SELECT space, packageID, robotID from robot";
 				}
 				else{
-					String spaceString="SELECT space FROM roles WHERE userID='"+user+"'";
+					String spaceString="SELECT space FROM roles WHERE userid='"+user+"'";
 					resultset = statement.executeQuery(spaceString);
 					resultset.next();
 					String userSpace = resultset.getString("space");
 
-					String selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
+					 selectString="SELECT space, packageID, robotID from robot where robot.space='"+userSpace+"'";
 				}
 
 				resultset = statement.executeQuery(selectString);
@@ -173,7 +173,7 @@ if( user == null || user.equals("") ) {
 	<table>
 <tr>
 	<td width="250px"> 
-	&nbsp;&nbsp;User
+	&nbsp;&nbsp;Org-Space
 <select multiple name="domain_name" id="domain_name" class="form-control" onchange="getDomains()">
 
 		<%

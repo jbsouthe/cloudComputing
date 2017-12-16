@@ -18,14 +18,16 @@
             <br/>Password:<input type="password" name="password"> 
             <br/><input type="submit" value="Submit"> 
         </form> 
-        <h2>Or Register...</h2>
+
+
+<%--        <h2>Or Register...</h2>
         <form action="UserRegister.jsp" method="post">
             <br/>Username:<input type="text" name="username"> 
             <br/>Choose Password:<input type="password" name="password1">
             <br/>Confirm Password:<input type="password" name="password2">
             <br/>Email Address:<input type="text" name="email">
             <br/><input type="submit" value="Submit">
-        </form>
+        </form> --%>  
     </center> 
     </body> 
 </html>
